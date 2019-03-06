@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201903020115594_newmigrationexpress.Designer.cs">
       <DependentUpon>201903020115594_newmigrationexpress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903060733415_addBy.cs" />
+    <Compile Include="Migrations\201903060733415_addBy.Designer.cs">
+      <DependentUpon>201903060733415_addBy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\SlangStore.cs" />
@@ -196,15 +200,17 @@
     <Compile Include="Services\Randomize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Css\Animate.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\53142113_335283420426170_8341360258777612288_n.png" />
+    <Content Include="Content\Loader\loader2.gif" />
+    <Content Include="Content\Loader\preloader.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Models\Publish Help.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -246,6 +252,7 @@
     <Content Include="Views\SlangStores\Details.cshtml" />
     <Content Include="Views\SlangStores\Edit.cshtml" />
     <Content Include="Views\SlangStores\Index.cshtml" />
+    <Content Include="Views\SlangStores\WhoAreYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,6 +273,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903020115594_newmigrationexpress.resx">
       <DependentUpon>201903020115594_newmigrationexpress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060733415_addBy.resx">
+      <DependentUpon>201903060733415_addBy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

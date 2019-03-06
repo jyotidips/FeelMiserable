@@ -9,9 +9,5 @@
   local
 
     <connectionStrings>
-
-
     <add name="MyDb" connectionString="Data Source=PROBOOK\SQLEXPRESS;Initial Catalog=FeelMiserable.Models.Context;Integrated Security=True" providerName="System.Data.SqlClient"/>
-
-
-  </connectionStrings>
+	     </connectionStrings>

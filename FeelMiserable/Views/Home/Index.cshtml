@@ -1,24 +1,99 @@
-﻿
-<div class="centertext" style="font-size:54px;color:white;font-family: Arca Majora 3 ;">
+﻿@{
+    ViewBag.color = "#4f4f4f";
+}
 
-    @if (ViewBag.slang != null)
-    {
-        <center> You're&nbsp;@ViewBag.slang</center>
-    }
-    else
-    {
-        <center>Your Session Is Up!</center>
-    }
 
+<div class="row">
+    <div class="col-md-12">
+        <div style="font-size:54px;color:white;">
+            <center>
+                <h6 id="developer">
+                    @if (Session["developer"] != null)
+                    {
+                        <span>@Session["developer"]</span>
+                    }
+
+                </h6>
+            </center>
+        </div>
+    </div>
 </div>
 
-@if (ViewBag.slang != null)
-{
-    <div class="centerbtn">
-        <center>
-            <a href="/Home/hit"><img src="~/Content/Images/53142113_335283420426170_8341360258777612288_n.png" style="max-width: 30px;" /></a>
-        </center>
+<div class="row">
+    <div class="col-md-12">
+        <div style="font-size:54px;color:white;">
+            <center id="loader" style="visibility:hidden"><img style="max-width:35px;" src="~/Content/Loader/loader2.gif" /></center>
+        </div>
     </div>
-}
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="centertext" style="font-size:54px;color:white;">
+            <center id="content"> You're&nbsp;<span id="slang"></span><span id="dot"></span></center>
+
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 170px;">
+    <div class="col-md-12">
+        <div class="centerbtn">
+            <center>
+                <a style="cursor:pointer;" onclick="getSlang()" /><img src="/Content/Images/53142113_335283420426170_8341360258777612288_n.png" style="max-width: 20px;" />
+            </center>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+    function getSlang() {
+        $('#slang').empty();
+
+        var effect = "jackInTheBox";
+        $("#loader").removeClass('animated fadeIn');
+        $('#content').removeClass('animated ' + effect);
+
+        $.ajax({
+            type: "GET",
+
+            url: '@Url.Action("Hit","Home")',
+
+            data: JSON,
+
+            success: function (data) {
+                $('#slang').append(data);
+
+            },
+
+            beforeSend: function () {
+                //$('#loader').show('slow');
+                $("#loader").css('visibility', 'visible');
+                $("#loader").addClass('animated bounce');
+
+                $("#content").css('visibility', 'hidden').fadeOut('slow');
+
+
+            },
+
+            complete: function () {
+                //$('#loader').hide('slow');
+                $("#loader").css('visibility', 'hidden');
+
+                //$('#content').show('slow');
+                $("#content").css('visibility', 'visible').fadeIn('slow');
+                $("#dot").html('.');
+                $('#content').addClass('animated ' + effect);
+            }
+
+
+        });
+    }
+
+</script>
 
 

@@ -26,13 +26,15 @@ namespace FeelMiserable.Controllers
         {
 
         }
+
         public ActionResult Index()
         {
             ViewBag.slang = "";
             return View();
         }
 
-        public ActionResult Hit()
+        [HttpGet]
+        public JsonResult Hit()
         {
 
             List<SlangStore> slangs = _context.SlangStores.ToList();
@@ -63,12 +65,14 @@ namespace FeelMiserable.Controllers
             }
             else
             {
-                ViewBag.slang = null;
+
+                string hot = "suggested to reveal the hidden you with just... no one! Share it if you had fun!";
+                Session["developer"] = "Developed By Dipjyoti";
+                return Json(hot, JsonRequestBehavior.AllowGet);
+
             }
 
-
-
-            return View("Index");
+            return Json(slang.Name, JsonRequestBehavior.AllowGet);
         }
 
         //public int GetUniqueId(List<int> slangs, int id)

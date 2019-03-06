@@ -1,7 +1,6 @@
 ﻿@model FeelMiserable.Models.SlangStore
 
 @{
-    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,9 +13,14 @@
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.AddedBy)
         </dd>
 
     </dl>
